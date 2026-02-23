@@ -1,0 +1,35 @@
+PROJECT STORY — Great Shape Open Day Landing Page
+==================================================
+
+Session 1: Initial Build
+- User (Niv) discovered Claude Code's /plugin system
+- Installed the frontend-design plugin for design skill instructions
+- Read SKILL.md and shared principles with Gemini for prompt creation
+- Built complete Next.js landing page from Gemini prompt + user answers
+- Components: Hero, VideoSection, SocialProof, VossBlock, FacilitiesGallery,
+  Testimonials, PricingTable, SavingsCalculator, RiskReversal, CheckoutForm,
+  StickyBar, FomoNotifications, ExitIntent, Footer, TermsModal
+- Added real facility images (gym1, gym2, pool-indoor, pool-outdoor, sauna)
+- Added club video (OPENDAY.mp4)
+- First round of text corrections (קאנטרי prefix, headline dots, etc.)
+
+Session 2: Major Refinements
+- Updated RiskReversal with 3 refund scenarios + grandiose tone
+- Added glowing "חודש מרץ ב-1 ש״ח" badge in Hero
+- Added "ללא התחייבות" and "החזר מלא מובטח" badges
+- Updated pricing: regular 419 NIS → VIP 249 NIS
+- Changed "דמי שריון" to "דמי מקדמה" across all components
+- Added ComparisonTable mobile scroll hint
+- Created AccessibilityWidget (Israeli law compliance)
+- Created CookieConsent banner (Israeli law compliance)
+- Integrated Supabase for lead storage
+- Updated SpotsCounter to fetch real data from API
+- Updated FomoNotifications to use real leads with fallback
+- Created API routes: /api/spots, /api/leads/recent
+- Set up Supabase project: great-shape-openday
+
+TODO:
+- Payment link (currently placeholder)
+- Supabase SQL table creation
+- GitHub repo setup
+- Vercel deployment
