@@ -178,9 +178,6 @@ export default function Hero() {
           <span className="relative z-10">
             שריון עסקת ה-VIP ב-150 ש״ח
           </span>
-          <span className="block text-sm font-normal opacity-80 mt-1">
-            החזר מלא מובטח!
-          </span>
           {/* Shine effect */}
           <div className="absolute inset-0 rounded-2xl overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />

@@ -96,23 +96,23 @@ export default function PricingTable() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative"
           >
-            {/* Top badges */}
-            <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
-              <div className="flex items-center gap-2 bg-[#E60000] text-white text-sm font-bold px-5 py-2 rounded-full shadow-lg shadow-[#E60000]/30 font-[family-name:var(--font-heebo)]">
-                <Star className="w-4 h-4 fill-current" />
-                מסלול VIP ליום הפתוח
-              </div>
-              <div className="flex items-center gap-1.5 bg-emerald-500 text-white text-sm font-bold px-4 py-2 rounded-full shadow-lg shadow-emerald-500/30 font-[family-name:var(--font-heebo)]">
-                ללא התחייבות!
-              </div>
-            </div>
-
             <div className="h-full bg-gradient-to-br from-[#1A1A1A] to-[#111] border-2 border-[#E60000]/40 rounded-3xl p-8 sm:p-10 relative overflow-hidden">
               {/* Corner glow */}
               <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#E60000]/20 rounded-full blur-[80px]" />
 
               <div className="relative z-10">
-                <div className="flex items-center gap-3 mb-8">
+                {/* Badges — inside the card flow */}
+                <div className="flex flex-wrap items-center justify-center gap-2 mb-6">
+                  <div className="flex items-center gap-2 bg-[#E60000] text-white text-xs sm:text-sm font-bold px-4 py-1.5 rounded-full shadow-lg shadow-[#E60000]/30 font-[family-name:var(--font-heebo)]">
+                    <Star className="w-3.5 h-3.5 fill-current" />
+                    מסלול VIP ליום הפתוח
+                  </div>
+                  <div className="flex items-center gap-1.5 bg-emerald-500 text-white text-xs sm:text-sm font-bold px-3 py-1.5 rounded-full shadow-lg shadow-emerald-500/30 font-[family-name:var(--font-heebo)]">
+                    ללא התחייבות!
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3 mb-8 justify-center">
                   <div className="w-10 h-10 rounded-xl bg-[#E60000]/20 flex items-center justify-center">
                     <Check className="w-5 h-5 text-[#E60000]" />
                   </div>
