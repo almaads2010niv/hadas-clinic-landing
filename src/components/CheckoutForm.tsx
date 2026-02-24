@@ -247,7 +247,7 @@ export default function CheckoutForm() {
 
                 {/* Payment button */}
                 <motion.a
-                  href="#PAYMENT_LINK_PLACEHOLDER"
+                  href="https://web.attractinet.co.il/GreatShape/index.jsp?jumpTo=Purches&packageId=19&lang=he"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.02 }}
