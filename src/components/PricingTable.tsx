@@ -136,7 +136,7 @@ export default function PricingTable() {
                   <div className="h-px bg-[#E60000]/20" />
 
                   <div>
-                    <span className="text-gray-400 text-sm">דמי מקדמה (החזר מלא מובטח)</span>
+                    <span className="text-gray-400 text-sm">החזר מלא מובטח במקרה של ביטול עסקה (ראו תקנון)</span>
                     <p className="font-[family-name:var(--font-heebo)] font-bold text-2xl text-white">
                       150 ש״ח
                     </p>
