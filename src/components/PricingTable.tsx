@@ -135,11 +135,12 @@ export default function PricingTable() {
 
                   <div className="h-px bg-[#E60000]/20" />
 
-                  <div>
-                    <span className="text-gray-400 text-sm">החזר מלא מובטח במקרה של ביטול עסקה (ראו תקנון)</span>
-                    <p className="font-[family-name:var(--font-heebo)] font-bold text-2xl text-white">
+                  <div className="text-center">
+                    <span className="text-gray-400 text-sm">דמי רישום ושריון:</span>
+                    <p className="font-[family-name:var(--font-heebo)] font-bold text-2xl text-white mt-1">
                       150 ש״ח
                     </p>
+                    <span className="text-gray-500 text-xs">(מוחזרים במלואם במקרה של ביטול)</span>
                   </div>
 
                   <div className="h-px bg-[#E60000]/20" />

@@ -120,7 +120,7 @@ export default function FomoNotifications() {
                 {notification.name}
               </p>
               <p className="text-gray-400 text-xs">
-                שריינ/ה מקום {notification.time}
+                שריין/ה את עסקת ה-VIP {notification.time}
               </p>
             </div>
             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse flex-shrink-0" />

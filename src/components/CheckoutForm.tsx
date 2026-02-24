@@ -242,7 +242,7 @@ export default function CheckoutForm() {
                   – הלינק הזה לא נשלח לכולם.
                 </p>
                 <p className="text-[#E60000] text-sm font-semibold font-[family-name:var(--font-heebo)]">
-                  150 ש״ח דמי מקדמה בלבד | החזר מלא מובטח
+                  תשלום דמי הרישום לנעילת המבצע (150 ש״ח)
                 </p>
 
                 {/* Payment button */}
