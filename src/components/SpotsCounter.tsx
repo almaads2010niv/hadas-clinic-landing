@@ -20,8 +20,8 @@ export default function SpotsCounter() {
     };
 
     fetchSpots();
-    // Refresh every 30 seconds
-    const interval = setInterval(fetchSpots, 30000);
+    // Refresh every 120 seconds (reduced to handle high traffic)
+    const interval = setInterval(fetchSpots, 120000);
     return () => clearInterval(interval);
   }, []);
 

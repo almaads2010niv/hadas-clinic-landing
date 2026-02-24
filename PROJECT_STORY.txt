@@ -28,8 +28,33 @@ Session 2: Major Refinements
 - Created API routes: /api/spots, /api/leads/recent
 - Set up Supabase project: great-shape-openday
 
+Session 3: Deployment & Infrastructure
+- Ran Supabase SQL via browser: created `leads` table with columns
+  (id, name, phone, email, source, created_at)
+- Enabled RLS with policies for anonymous insert + select
+- Created index on created_at for performance
+- Created GitHub repo: almaads2010niv/great-shape-openday
+- Set local git config to alma.ads2010@gmail.com / almaads2010niv
+- Pushed 41 files to main branch (commit 63874cd)
+- Deployed to Vercel with environment variables:
+  - NEXT_PUBLIC_SUPABASE_URL
+  - NEXT_PUBLIC_SUPABASE_ANON_KEY
+- Live at: https://great-shape-openday.vercel.app
+- User showed FTP access to space-cn.co.il (original club website)
+- Discussed custom domain options: subdomain openday.space-cn.co.il recommended
+- DNS setup needed (CNAME → cname.vercel-dns.com)
+
+Session 4: ComparisonTable Mobile UX Fix
+- Niv reported mobile users can't see competitor columns in ComparisonTable
+- Only "קאנטרי גרייט שייפ" column visible — users don't understand it's a comparison
+- Rewrote ComparisonTable.tsx with 3 mobile UX improvements:
+  1. Auto-peek animation: table scrolls 60px left then back after 1.2s
+  2. Floating red arrow on left edge with "המתחרים" label (disappears on scroll)
+  3. Subtitle text on mobile: "גרייט שייפ מול המתחרים — גלול לצד לראות את ההשוואה"
+- Added left-edge gradient fade to suggest more content
+- Commit fd30183, auto-deployed to Vercel
+
 TODO:
-- Payment link (currently placeholder)
-- Supabase SQL table creation
-- GitHub repo setup
-- Vercel deployment
+- Payment link (currently #PAYMENT_LINK_PLACEHOLDER in CheckoutForm.tsx)
+- Custom domain connection (DNS CNAME for space-cn.co.il)
+- Google Analytics / Facebook Pixel tracking

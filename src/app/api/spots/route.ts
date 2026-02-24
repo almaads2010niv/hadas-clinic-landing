@@ -16,11 +16,18 @@ export async function GET() {
 
     const takenSpots = Math.min(count || 0, totalSpots);
 
-    return NextResponse.json({
-      totalSpots,
-      takenSpots,
-      remainingSpots: totalSpots - takenSpots,
-    });
+    return NextResponse.json(
+      {
+        totalSpots,
+        takenSpots,
+        remainingSpots: totalSpots - takenSpots,
+      },
+      {
+        headers: {
+          "Cache-Control": "s-maxage=30, stale-while-revalidate=60",
+        },
+      }
+    );
   } catch (error) {
     console.error("Spots API error:", error);
     return NextResponse.json({ totalSpots: 50, takenSpots: 0 });

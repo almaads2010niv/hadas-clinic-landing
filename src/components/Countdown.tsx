@@ -53,7 +53,7 @@ export default function Countdown({ targetDate }: CountdownProps) {
   return (
     <div className="flex flex-col items-center gap-3">
       <p className="text-sm text-[#E60000] font-semibold tracking-wider font-[family-name:var(--font-heebo)] uppercase">
-        היום הפתוח מתחיל בעוד
+        היום הפתוח מסתיים בעוד
       </p>
       <div className="flex gap-3 sm:gap-4 direction-ltr" dir="ltr">
         {blocks.map((block, i) => (

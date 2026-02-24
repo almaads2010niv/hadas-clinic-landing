@@ -7,6 +7,7 @@ import ComparisonTable from "@/components/ComparisonTable";
 import PricingTable from "@/components/PricingTable";
 import SavingsCalculator from "@/components/SavingsCalculator";
 import Testimonials from "@/components/Testimonials";
+import GuiltRelease from "@/components/GuiltRelease";
 import RiskReversal from "@/components/RiskReversal";
 import CheckoutForm from "@/components/CheckoutForm";
 import Footer from "@/components/Footer";
@@ -54,6 +55,9 @@ export default function Home() {
 
       {/* 5. Testimonials */}
       <Testimonials />
+
+      {/* 5.5. Guilt Release - Clearing the barrier */}
+      <GuiltRelease />
 
       {/* 6. Pricing Anchoring */}
       <PricingTable />

@@ -20,7 +20,14 @@ export async function GET() {
       created_at: lead.created_at,
     }));
 
-    return NextResponse.json({ leads });
+    return NextResponse.json(
+      { leads },
+      {
+        headers: {
+          "Cache-Control": "s-maxage=30, stale-while-revalidate=60",
+        },
+      }
+    );
   } catch (error) {
     console.error("Recent leads API error:", error);
     return NextResponse.json({ leads: [] });

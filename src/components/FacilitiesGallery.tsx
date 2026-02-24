@@ -2,49 +2,50 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
 
 const facilities = [
   {
     src: "/images/gym1.jpg",
     alt: "חדר כושר מאובזר",
     label: "חדר כושר",
-    description: "ציוד מקצועי מהמותגים המובילים",
-    span: "col-span-2 row-span-2",
+    emotion:
+      "הכוח לחזור לעצמכם. בלי לחץ, בקצב שלכם. מתחם כושר שמותאם להחזיר לכם את האנרגיה והחיוניות שכבר כמעט שכחתם שקיימות בכם.",
+    span: "sm:col-span-2 sm:row-span-2",
   },
   {
     src: "/images/pool-indoor.jpg",
     alt: "בריכה מקורה מחוממת",
     label: "בריכה מקורה",
-    description: "מחוממת לאורך כל השנה",
-    span: "col-span-1 row-span-1",
+    emotion:
+      "השקט של הבוקר. 45 דקות של שחייה בבריכה מחוממת שמנקות את הראש מכל הלחצים, רגע לפני שהטירוף של היום מתחיל. זמן שהוא נטו שלכם.",
+    span: "",
   },
   {
     src: "/images/sauna.JPG",
     alt: "סאונה וספא",
     label: "סאונה & ספא",
-    description: "סאונה יבשה, ג׳קוזי ופינת רגיעה",
-    span: "col-span-1 row-span-1",
+    emotion:
+      "הניתוק המוחלט. לשים את הטלפון בצד, לקחת נשימה עמוקה, ולשחרר את השרירים ואת שגרת היומיום בסאונה המרגיעה שלנו.",
+    span: "",
   },
   {
     src: "/images/pool-outdoor.jpg",
     alt: "בריכה חיצונית",
     label: "בריכה חיצונית",
-    description: "מתחם שחייה ופנאי מוקף ירוק",
-    span: "col-span-2 row-span-1",
+    emotion: "",
+    span: "sm:col-span-2",
   },
   {
-    src: "/images/gym2.jpg",
-    alt: "אזור אימון פונקציונלי",
-    label: "אימון פונקציונלי",
-    description: "ציוד TRX, משקולות חופשיות ועוד",
-    span: "col-span-1 row-span-1",
+    src: "/images/studio.jpg",
+    alt: "סטודיו חוגים",
+    label: "סטודיו & חוגים",
+    emotion:
+      "האדרנלין של ביחד. אימוני סטודיו שיזכירו לכם כמה כיף זה לדחוף את הגוף קדימה, לסיים בשיא ולצאת עם חיוך שאי אפשר למחוק.",
+    span: "",
   },
 ];
 
 export default function FacilitiesGallery() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
   return (
     <section className="relative py-24 sm:py-32 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-[#080808] to-[#0A0A0A]" />
@@ -65,7 +66,7 @@ export default function FacilitiesGallery() {
         </motion.div>
 
         {/* Masonry-style Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[250px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[280px] sm:auto-rows-[260px]">
           {facilities.map((item, i) => (
             <motion.div
               key={i}
@@ -73,43 +74,34 @@ export default function FacilitiesGallery() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className={`relative rounded-3xl overflow-hidden cursor-pointer group ${
-                i === 0 ? "sm:col-span-2 sm:row-span-2" : ""
-              } ${i === 3 ? "sm:col-span-2" : ""}`}
-              onMouseEnter={() => setHoveredIndex(i)}
-              onMouseLeave={() => setHoveredIndex(null)}
+              className={`relative rounded-3xl overflow-hidden group ${item.span} ${
+                i === 0 ? "sm:row-span-2" : ""
+              }`}
             >
               <Image
                 src={item.src}
                 alt={item.alt}
                 fill
-                className={`object-cover transition-all duration-700 ${
-                  hoveredIndex === i ? "scale-110 brightness-50" : "scale-100 brightness-75"
-                }`}
+                className="object-cover transition-transform duration-700 group-hover:scale-105 brightness-[0.55] group-hover:brightness-[0.4]"
               />
 
-              {/* Always visible label */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
-                <h3 className="font-[family-name:var(--font-heebo)] font-bold text-xl text-white">
+              {/* Content overlay — always visible */}
+              <div className="absolute inset-0 flex flex-col justify-end p-5 sm:p-6 bg-gradient-to-t from-black/70 via-black/20 to-transparent">
+                {/* Facility label */}
+                <h3 className="font-[family-name:var(--font-heebo)] font-bold text-lg sm:text-xl text-white mb-1">
                   {item.label}
                 </h3>
-                <p
-                  className={`text-gray-300 text-sm mt-1 transition-all duration-500 ${
-                    hoveredIndex === i
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-4"
-                  }`}
-                >
-                  {item.description}
-                </p>
+
+                {/* Emotional description */}
+                {item.emotion && (
+                  <p className="font-[family-name:var(--font-assistant)] text-[13px] sm:text-sm text-white/75 leading-relaxed max-w-md">
+                    {item.emotion}
+                  </p>
+                )}
               </div>
 
-              {/* Red accent on hover */}
-              <div
-                className={`absolute top-4 right-4 w-3 h-3 rounded-full bg-[#E60000] transition-all duration-300 ${
-                  hoveredIndex === i ? "opacity-100 scale-100" : "opacity-0 scale-0"
-                }`}
-              />
+              {/* Red accent dot */}
+              <div className="absolute top-4 right-4 w-2.5 h-2.5 rounded-full bg-[#E60000] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </motion.div>
           ))}
         </div>

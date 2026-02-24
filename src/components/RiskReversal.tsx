@@ -40,10 +40,6 @@ export default function RiskReversal() {
                 <ShieldCheck className="w-10 h-10 text-white" />
               </motion.div>
 
-              <p className="text-white/70 text-sm font-semibold tracking-wider mb-4 font-[family-name:var(--font-heebo)]">
-                אתם מכירים אותנו. אנחנו מכירים אתכם.
-              </p>
-
               <h2 className="font-[family-name:var(--font-heebo)] font-black text-3xl sm:text-4xl md:text-5xl text-white mb-8 leading-tight">
                 אפס סיכון.
                 <br />
@@ -52,18 +48,32 @@ export default function RiskReversal() {
                 רק הזדמנות.
               </h2>
 
-              <div className="space-y-4 text-white/90 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed mb-8">
+              <div className="text-white/90 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed mb-8 space-y-5">
                 <p>
-                  לא הגעתם ליום הפתוח? <strong>הכסף חוזר אליכם.</strong>
+                  אנחנו לא צריכים להכיר מחדש. ולכן אנחנו מורידים את כל החסמים.
+                  אתם יודעים מי אנחנו, ואנחנו יודעים שאתם שייכים לכאן.
+                  במקום לחכות ליום הפתוח, לעמוד בתור או לדבר עם נציגים –
+                  אתם יכולים לשריין את העסקה שלכם עכשיו אונליין,{" "}
+                  <strong>ב-100% ביטחון.</strong>
                 </p>
-                <p>
-                  הגעתם והחלטתם שזה לא מתאים? <strong>הכסף חוזר אליכם.</strong>
-                </p>
-                <p>
-                  החלטתם תוך 14 יום שלא רוצים? <strong>הכסף חוזר אליכם.</strong>
-                </p>
+
+                <div className="text-right space-y-3">
+                  <p>
+                    <span className="text-2xl ml-2 text-white">✓</span>
+                    <strong>אפס סיכון.</strong> הגעתם, ניסיתם, והחלטתם שזה לא מתאים?{" "}
+                    <strong>הכסף חוזר אליכם.</strong>
+                  </p>
+                  <p>
+                    <span className="text-2xl ml-2 text-white">✓</span>
+                    <strong>אפס חששות.</strong> התחרטתם תוך 14 יום? תקבלו{" "}
+                    <strong>החזר מלא ומיידי של ה-150 ש״ח.</strong>
+                  </p>
+                </div>
+
                 <p className="text-white font-bold text-xl sm:text-2xl pt-2">
-                  150 ש״ח — החזר מלא מובטח. בלי שאלות. בלי סיפורים.
+                  בלי אותיות קטנות. בלי שכנועים. בלי סיפורים.
+                  <br />
+                  ההחלטה תמיד נשארת בידיים שלכם.
                 </p>
               </div>
 

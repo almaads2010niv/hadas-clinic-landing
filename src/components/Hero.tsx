@@ -139,12 +139,20 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.5 }}
-          className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed font-light"
+          className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed font-light"
         >
-          קאנטרי גרייט שייפ פותח שערים ליום פתוח.
-          שריינו עכשיו את מקומכם וקבלו את המנוי{" "}
-          <span className="text-white font-bold">בתעריף VIP קבוע ומוזל</span>
-          {" "}– ללא התחייבות, והחזר מלא מובטח.
+          הקצינו בדיוק{" "}
+          <span className="text-white font-bold">50 חבילות VIP</span>{" "}
+          ללקוחות עבר של קאנטרי גרייט שייפ נשר (ספייס לשעבר) שמוכנים להתחיל מחדש ולחזור לשגרה שלהם.
+          במקום לחכות ליום הפתוח ולקוות שיישאר מקום –{" "}
+          שריינו עכשיו את עסקת ה-VIP שלכם אונליין.{" "}
+          <span className="text-white font-semibold">
+            תעריף קבוע ומוזל במיוחד, ללא התחייבות, ואפס סיכון.
+          </span>
+          <br />
+          <span className="text-white/90 font-medium">
+            השגרה החדשה שלכם מתחילה כאן.
+          </span>
         </motion.p>
 
         {/* Countdown */}
@@ -154,7 +162,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.7 }}
           className="mb-10"
         >
-          <Countdown targetDate="2026-02-25T09:00:00+02:00" />
+          <Countdown targetDate="2026-02-25T20:00:00+02:00" />
         </motion.div>
 
         {/* CTA Button */}

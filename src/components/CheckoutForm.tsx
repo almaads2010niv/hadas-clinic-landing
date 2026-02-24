@@ -70,10 +70,11 @@ export default function CheckoutForm() {
           className="text-center mb-10"
         >
           <span className="inline-block text-[#E60000] text-sm font-bold tracking-widest mb-4 font-[family-name:var(--font-heebo)]">
-            שריינו מקום עכשיו
+            השגרה החדשה שלכם מתחילה בהחלטה אחת קטנה (ובטוחה)
           </span>
-          <h2 className="font-[family-name:var(--font-heebo)] font-black text-3xl sm:text-4xl md:text-5xl mb-4">
-            הצטרפו ל<span className="text-gradient-red">יום הפתוח VIP</span>
+          <h2 className="font-[family-name:var(--font-heebo)] font-black text-2xl sm:text-3xl md:text-4xl mb-4">
+            אני מוכן/ה להתחיל מחדש –{" "}
+            <span className="text-gradient-red">שריינו לי את ההטבה</span>
           </h2>
           <SpotsCounter />
         </motion.div>
