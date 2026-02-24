@@ -27,10 +27,10 @@ export default function VideoSection() {
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="relative mx-auto w-full max-w-[340px] sm:max-w-[400px] rounded-[32px] overflow-hidden border border-white/10 shadow-2xl shadow-black/50"
+          className="relative rounded-[32px] overflow-hidden border border-white/10 shadow-2xl shadow-black/50"
         >
-          {/* 9:16 vertical aspect ratio (Shorts format) */}
-          <div className="relative w-full aspect-[9/16]">
+          {/* 16:9 landscape container — same as original design */}
+          <div className="relative w-full aspect-video">
             <iframe
               className="absolute inset-0 w-full h-full"
               src="https://www.youtube.com/embed/spB_PgrKPU8?autoplay=1&mute=1&loop=1&playlist=spB_PgrKPU8&playsinline=1&controls=0&rel=0"
