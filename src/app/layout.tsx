@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Heebo, Assistant } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const heebo = Heebo({
@@ -40,6 +41,7 @@ export default function RootLayout({
       >
         <div className="noise-overlay" />
         {children}
+        <Analytics />
       </body>
     </html>
   );

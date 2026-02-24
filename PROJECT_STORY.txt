@@ -54,7 +54,53 @@ Session 4: ComparisonTable Mobile UX Fix
 - Added left-edge gradient fade to suggest more content
 - Commit fd30183, auto-deployed to Vercel
 
+Session 5: Major Content Overhaul + Performance + CRO
+- Niv planning SMS to 10,000+ former members — asked if page can handle 500 concurrent
+- Identified 4 bottlenecks: 36.5MB local video, API polling storms, Supabase free tier, Vercel limits
+- Replaced local video with YouTube embed (Shorts: https://youtube.com/shorts/spB_PgrKPU8)
+- Added Cache-Control headers to API routes (s-maxage=30, stale-while-revalidate=60)
+- Increased SpotsCounter polling to 120s, deleted OPENDAY.mp4
+- Fixed YouTube Shorts vertical aspect ratio — changed to 16:9 landscape
+- Massive Hebrew text overhaul across all components:
+  - Hero: new subtitle about 50 VIP packages for former members
+  - VossBlock: updated no-oriented questions to plural form
+  - FacilitiesGallery: added emotional descriptions on each image
+  - RiskReversal: complete rewrite with empathetic tone
+  - New GuiltRelease component (gold accent, clearing emotional barriers)
+  - TermsModal: updated sections 2 and 3
+- Added studio class photo (studio.jpg)
+- Integrated Attractinet payment link in CheckoutForm step 2
+- Updated pricing text: "החזר מלא מובטח במקרה של ביטול עסקה (ראו תקנון)"
+- CRO optimizations:
+  - Unified CTA text: "שריון עסקת ה-VIP ב-150 ש״ח" (sticky/hero), "שריינו לי את ההטבה" (form/pricing)
+  - New HowItWorks component (3 steps: Lock/Phone/Dumbbell)
+  - Transparency micro-copy in checkout step 2 (full terms summary)
+- Mobile polish:
+  - VIP card badges moved from absolute positioning to card flow with flex-wrap
+  - Removed CTA subtitle on buttons
+  - FOMO notifications: "שריין/ה את עסקת ה-VIP"
+- Commits: 1dc6703 through d45da60 (8 commits), auto-deployed to Vercel
+- Files modified: Hero, VideoSection, VossBlock, FacilitiesGallery, RiskReversal,
+  CheckoutForm, PricingTable, StickyBar, SpotsCounter, FomoNotifications,
+  TermsModal, HowItWorks (new), GuiltRelease (new), page.tsx
+
+Session 6: Analytics + Lead Status Tracking
+- Installed @vercel/analytics, added <Analytics /> to layout.tsx
+- Added `status` column to Supabase leads table via SQL Editor in browser:
+  - ALTER TABLE leads ADD COLUMN status text DEFAULT 'pending_payment'
+  - Created RLS policy "Allow anonymous status updates" for UPDATE
+- Updated /api/checkout to include status: "pending_payment" and return leadId
+- Created new API route /api/checkout/status (PATCH) for status updates
+  - Validates allowed statuses: redirected_to_checkout, payment_completed
+- Updated CheckoutForm.tsx:
+  - Stores leadId from step 1 response in state
+  - On payment button click, fires fire-and-forget PATCH to update status
+    to "redirected_to_checkout" before external redirect opens
+- Verified E2E: insert with status works, update status works
+- Files modified: layout.tsx, api/checkout/route.ts, CheckoutForm.tsx, supabase-setup.sql
+- New files: api/checkout/status/route.ts, supabase-migration-status.sql
+
 TODO:
-- Payment link (currently #PAYMENT_LINK_PLACEHOLDER in CheckoutForm.tsx)
 - Custom domain connection (DNS CNAME for space-cn.co.il)
-- Google Analytics / Facebook Pixel tracking
+- Facebook Pixel tracking
+- Admin dashboard to view leads + statuses

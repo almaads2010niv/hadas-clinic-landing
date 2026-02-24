@@ -57,16 +57,11 @@ export default function RiskReversal() {
                   <strong>ב-100% ביטחון.</strong>
                 </p>
 
-                <div className="text-right space-y-3">
+                <div className="text-right">
                   <p>
                     <span className="text-2xl ml-2 text-white">✓</span>
-                    <strong>אפס סיכון.</strong> הגעתם, ניסיתם, והחלטתם שזה לא מתאים?{" "}
-                    <strong>הכסף חוזר אליכם.</strong>
-                  </p>
-                  <p>
-                    <span className="text-2xl ml-2 text-white">✓</span>
-                    <strong>אפס חששות.</strong> התחרטתם תוך 14 יום? תקבלו{" "}
-                    <strong>החזר מלא ומיידי של ה-150 ש״ח.</strong>
+                    <strong>אפס סיכון ואפס חששות.</strong> התחרטתם תוך 14 יום מביצוע העסקה? כספכם יוחזר במלואו באופן מיידי.{" "}
+                    <strong>בלי שאלות.</strong>
                   </p>
                 </div>
 

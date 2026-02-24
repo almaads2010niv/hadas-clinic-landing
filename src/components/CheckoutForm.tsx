@@ -10,6 +10,7 @@ type Step = "details" | "payment" | "success";
 export default function CheckoutForm() {
   const [step, setStep] = useState<Step>("details");
   const [loading, setLoading] = useState(false);
+  const [leadId, setLeadId] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -40,6 +41,10 @@ export default function CheckoutForm() {
         body: JSON.stringify(formData),
       });
       if (res.ok) {
+        const data = await res.json();
+        if (data.leadId) {
+          setLeadId(data.leadId);
+        }
         setStep("payment");
       }
     } catch {
@@ -51,8 +56,17 @@ export default function CheckoutForm() {
   };
 
   const handlePayment = () => {
-    // This will redirect to external payment link
-    // For now show success state
+    // Update lead status to redirected_to_checkout before opening payment link
+    if (leadId) {
+      fetch("/api/checkout/status", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ leadId, status: "redirected_to_checkout" }),
+      }).catch(() => {
+        // Fire-and-forget: don't block redirect if update fails
+      });
+    }
+    // The <a> tag handles the redirect; show success state
     setStep("success");
   };
 

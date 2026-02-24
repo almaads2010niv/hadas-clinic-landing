@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Save lead to Supabase
+    // Save lead to Supabase with pending_payment status
     const { data, error } = await supabase
       .from("leads")
       .insert([
@@ -23,25 +23,28 @@ export async function POST(request: NextRequest) {
           phone,
           email: email || null,
           source: source || "checkout_form",
+          status: "pending_payment",
         },
       ])
-      .select();
+      .select("id");
 
     if (error) {
       console.error("Supabase insert error:", error);
       // Fallback: still return success to not block user experience
       return NextResponse.json(
-        { success: true, message: "Lead captured (fallback)" },
+        { success: true, message: "Lead captured (fallback)", leadId: null },
         { status: 200 }
       );
     }
 
-    console.log("Lead saved to Supabase:", data);
+    const leadId = data?.[0]?.id || null;
+    console.log("Lead saved to Supabase:", leadId);
 
     return NextResponse.json(
       {
         success: true,
         message: "Lead captured successfully",
+        leadId,
       },
       { status: 200 }
     );

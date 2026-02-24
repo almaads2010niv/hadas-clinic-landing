@@ -140,7 +140,6 @@ export default function PricingTable() {
                     <p className="font-[family-name:var(--font-heebo)] font-bold text-2xl text-white mt-1">
                       150 ש״ח
                     </p>
-                    <span className="text-gray-500 text-xs">(מוחזרים במלואם במקרה של ביטול)</span>
                   </div>
 
                   <div className="h-px bg-[#E60000]/20" />

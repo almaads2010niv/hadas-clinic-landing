@@ -21,7 +21,9 @@
 - Lucide React icons
 - Hebrew RTL layout
 - Google Fonts: Heebo (display) + Assistant (body)
-- Supabase for lead storage
+- Supabase for lead storage + status tracking
+- @vercel/analytics for web analytics
+- YouTube embed for video (replaced local 36.5MB file)
 
 ## Design Rules (from frontend-design skill)
 - NEVER use generic AI aesthetics (Inter, Roboto, purple gradients)
@@ -54,9 +56,10 @@
 ## Supabase
 - Project: great-shape-openday
 - URL: https://cgnybtwzwbxxqwjwfozx.supabase.co
-- Table: `leads` (name, phone, email, source, created_at)
-- RLS enabled: anonymous insert + select
-- API routes: /api/checkout (insert), /api/spots (count), /api/leads/recent (last 10)
+- Table: `leads` (id, name, phone, email, source, status, created_at)
+- Status values: `pending_payment` → `redirected_to_checkout` → `payment_completed`
+- RLS enabled: anonymous insert + select + update
+- API routes: /api/checkout (insert lead, returns leadId), /api/checkout/status (PATCH status), /api/spots (count), /api/leads/recent (last 10)
 
 ## Deployment
 - Vercel auto-deploys on push to `main`
@@ -69,16 +72,21 @@
 - Rule: always ensure comparison/table sections show at least a visual hint of hidden content on mobile
 
 ## Architecture
-- 20 components total in src/components/
-- 3 API routes in src/app/api/ (checkout, spots, leads/recent)
-- Single-page funnel: Hero → Video → SocialProof → VossBlock → Gallery → Comparison → Testimonials → Pricing → Calculator → RiskReversal → Checkout → Footer
+- 22 components total in src/components/
+- 4 API routes in src/app/api/ (checkout, checkout/status, spots, leads/recent)
+- Single-page funnel: Hero → Video → SocialProof → VossBlock → Gallery → Comparison → Testimonials → GuiltRelease → Pricing → Calculator → RiskReversal → HowItWorks → Checkout → Footer
+- Overlay components: StickyBar, FomoNotifications, ExitIntent, AccessibilityWidget, CookieConsent
 
-## Current State (Session 4)
-- ✅ Landing page fully built and deployed
-- ✅ Supabase integrated with leads table + RLS
-- ✅ GitHub repo created and pushed
-- ✅ Vercel deployed and live
-- ✅ ComparisonTable mobile UX fixed (peek arrow + auto-scroll hint)
-- ⏳ Payment link still placeholder (#PAYMENT_LINK_PLACEHOLDER in CheckoutForm.tsx)
+## Current State (Session 6)
+- ✅ Landing page fully built, deployed, and conversion-optimized
+- ✅ Supabase leads table with status tracking (pending_payment → redirected_to_checkout)
+- ✅ Payment link integrated (Attractinet external checkout)
+- ✅ Vercel Web Analytics installed and active
+- ✅ YouTube embed for video (replaced local file for CDN performance)
+- ✅ CRO optimizations: unified CTA text, HowItWorks block, transparency micro-copy
+- ✅ Mobile UX: VIP card badges in flow, responsive layouts
+- ✅ New components: GuiltRelease, HowItWorks
+- ✅ Extensive Hebrew copy overhaul (VossBlock, Gallery, RiskReversal, Hero)
 - ⏳ Custom domain connection (space-cn.co.il) — DNS setup needed
-- Last updated: Session 4
+- ⏳ Facebook Pixel tracking
+- Last updated: Session 6

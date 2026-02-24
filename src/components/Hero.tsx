@@ -118,7 +118,7 @@ export default function Hero() {
           </div>
           <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 backdrop-blur-sm">
             <span className="text-sm font-semibold text-white/80 font-[family-name:var(--font-heebo)]">
-              ✓ החזר מלא מובטח
+              ✓ מחיר מובטח ל-5 שנים
             </span>
           </div>
         </motion.div>

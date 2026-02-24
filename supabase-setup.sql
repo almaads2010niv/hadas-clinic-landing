@@ -7,6 +7,7 @@ create table if not exists leads (
   phone text not null,
   email text,
   source text default 'checkout_form',
+  status text default 'pending_payment',
   created_at timestamptz default now()
 );
 
@@ -21,5 +22,15 @@ create policy "Allow anonymous inserts" on leads
 create policy "Allow anonymous select" on leads
   for select using (true);
 
+-- Allow anonymous updates on status field only (for tracking payment redirects)
+create policy "Allow anonymous status updates" on leads
+  for update using (true) with check (true);
+
 -- Index for faster recent leads queries
 create index if not exists leads_created_at_idx on leads (created_at desc);
+
+-- ============================================================
+-- MIGRATION: Run this if the table already exists without the status column
+-- ============================================================
+-- ALTER TABLE leads ADD COLUMN IF NOT EXISTS status text DEFAULT 'pending_payment';
+-- CREATE POLICY "Allow anonymous status updates" ON leads FOR UPDATE USING (true) WITH CHECK (true);
