@@ -176,7 +176,7 @@ export default function Hero() {
           className="cta-glow relative bg-[#E60000] hover:bg-[#FF1A1A] text-white font-[family-name:var(--font-heebo)] font-bold text-lg sm:text-xl px-10 py-5 rounded-2xl transition-all duration-300 cursor-pointer group"
         >
           <span className="relative z-10">
-            אני רוצה לשריין את המבצע ב-150 ש״ח
+            שריון עסקת ה-VIP ב-150 ש״ח
           </span>
           <span className="block text-sm font-normal opacity-80 mt-1">
             החזר מלא מובטח!

@@ -206,7 +206,7 @@ export default function CheckoutForm() {
                     <Loader2 className="w-5 h-5 animate-spin" />
                   ) : (
                     <>
-                      <span>שריינו לי מקום</span>
+                      <span>שריינו לי את ההטבה</span>
                       <ArrowLeft className="w-5 h-5" />
                     </>
                   )}
@@ -259,8 +259,12 @@ export default function CheckoutForm() {
                   <span>לתשלום מאובטח של 150 ש״ח</span>
                 </motion.a>
 
-                <p className="text-gray-600 text-xs">
-                  תועברו לדף תשלום מאובטח | ניתן לבטל בכל עת
+                <p className="text-gray-500 text-xs leading-relaxed max-w-md mx-auto mt-4">
+                  בלחיצה על תשלום, הנך משלם/ת 150 ₪ (דמי רישום חד-פעמיים)
+                  ומשריין/ת לעצמך את חודש מרץ ב-1 ₪, ולאחריו מחיר מובטח של
+                  249 ₪/חודש בה.קבע. נציגי הקאנטרי ייצרו איתך קשר להשלמת
+                  הרישום. המנוי ללא התחייבות (ביטול בהתראה של 30 יום). החזר מלא
+                  מובטח במקרה של ביטול תוך 14 יום.
                 </p>
               </motion.div>
             )}

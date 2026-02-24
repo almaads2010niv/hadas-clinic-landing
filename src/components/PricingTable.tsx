@@ -177,7 +177,7 @@ export default function PricingTable() {
                   onClick={scrollToCheckout}
                   className="w-full mt-8 cta-glow bg-[#E60000] hover:bg-[#FF1A1A] text-white font-[family-name:var(--font-heebo)] font-bold text-lg py-4 rounded-2xl transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <span>שריינו מקום עכשיו</span>
+                  <span>שריינו לי את ההטבה ⬅️</span>
                   <ArrowDown className="w-5 h-5" />
                 </motion.button>
               </div>

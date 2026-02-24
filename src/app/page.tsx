@@ -9,6 +9,7 @@ import SavingsCalculator from "@/components/SavingsCalculator";
 import Testimonials from "@/components/Testimonials";
 import GuiltRelease from "@/components/GuiltRelease";
 import RiskReversal from "@/components/RiskReversal";
+import HowItWorks from "@/components/HowItWorks";
 import CheckoutForm from "@/components/CheckoutForm";
 import Footer from "@/components/Footer";
 import StickyBar from "@/components/StickyBar";
@@ -67,6 +68,9 @@ export default function Home() {
 
       {/* 8. Risk Reversal */}
       <RiskReversal />
+
+      {/* 8.5. How It Works - 3 Steps */}
+      <HowItWorks />
 
       {/* 9. Checkout Form */}
       <CheckoutForm />

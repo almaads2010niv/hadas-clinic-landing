@@ -48,7 +48,7 @@ export default function StickyBar() {
               onClick={scrollToCheckout}
               className="bg-[#E60000] hover:bg-[#FF1A1A] text-white font-[family-name:var(--font-heebo)] font-bold text-sm px-6 py-2.5 rounded-xl transition-all cursor-pointer whitespace-nowrap"
             >
-              שריינו מקום ← 150 ש״ח
+              שריון עסקת ה-VIP ב-150 ש״ח
             </motion.button>
           </div>
         </motion.div>
