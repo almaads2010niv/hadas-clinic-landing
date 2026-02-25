@@ -164,7 +164,10 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.7 }}
           className="mb-10"
         >
-          <Countdown targetDate="2026-02-25T20:00:00+02:00" />
+          <Countdown
+            targetDate={isNight ? "2026-02-26T08:00:00+02:00" : "2026-02-25T20:00:00+02:00"}
+            nightMode={isNight}
+          />
         </motion.div>
 
         {/* CTA Button */}
