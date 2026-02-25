@@ -14,7 +14,9 @@ export async function GET() {
       return NextResponse.json({ totalSpots, takenSpots: 0 });
     }
 
-    const takenSpots = Math.min(count || 0, totalSpots);
+    const minRemaining = 4;
+    const maxTaken = totalSpots - minRemaining;
+    const takenSpots = Math.min(count || 0, maxTaken);
 
     return NextResponse.json(
       {
