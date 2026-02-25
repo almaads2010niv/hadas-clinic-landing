@@ -1,9 +1,13 @@
 import { NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
 
+// Night sale starts: Feb 25, 2026 at 20:00 Israel time (UTC+2)
+const NIGHT_START = new Date("2026-02-25T18:00:00Z").getTime();
+
 export async function GET() {
   try {
-    const totalSpots = 50;
+    const isNight = Date.now() >= NIGHT_START;
+    const totalSpots = isNight ? 25 : 50;
 
     const { count, error } = await supabase
       .from("leads")
@@ -32,6 +36,7 @@ export async function GET() {
     );
   } catch (error) {
     console.error("Spots API error:", error);
-    return NextResponse.json({ totalSpots: 50, takenSpots: 0 });
+    const fallbackTotal = Date.now() >= NIGHT_START ? 25 : 50;
+    return NextResponse.json({ totalSpots: fallbackTotal, takenSpots: 0 });
   }
 }

@@ -2,8 +2,9 @@
 
 import { motion } from "framer-motion";
 import { Wallet, Flame, Crown } from "lucide-react";
+import { useNightMode } from "@/hooks/useNightMode";
 
-const questions = [
+const getQuestions = (isNight: boolean) => [
   {
     icon: <Wallet className="w-8 h-8" />,
     text: "האם זה רעיון רע לחסוך כמעט 1,000 שקלים השנה על הבריאות שלכם?",
@@ -16,12 +17,16 @@ const questions = [
   },
   {
     icon: <Crown className="w-8 h-8" />,
-    text: "האם תהיו נגד לקבל מנוי לקאנטרי שאתם כבר מכירים, בתעריף פרימיום ששמור רק ל-50 הראשונים?",
+    text: isNight
+      ? "האם תהיו נגד לקבל מנוי לקאנטרי שאתם כבר מכירים, בתעריף פרימיום ששמור רק ל-25 האחרונים?"
+      : "האם תהיו נגד לקבל מנוי לקאנטרי שאתם כבר מכירים, בתעריף פרימיום ששמור רק ל-50 הראשונים?",
     accent: "from-[#E60000]/20 to-transparent",
   },
 ];
 
 export default function VossBlock() {
+  const isNight = useNightMode();
+  const questions = getQuestions(isNight);
   return (
     <section className="relative py-24 sm:py-32 overflow-hidden">
       {/* Diagonal red line accent */}

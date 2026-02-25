@@ -4,8 +4,10 @@ import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import Countdown from "./Countdown";
 import Image from "next/image";
+import { useNightMode } from "@/hooks/useNightMode";
 
 export default function Hero() {
+  const isNight = useNightMode();
   const scrollToCheckout = () => {
     document.getElementById("checkout")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -108,7 +110,7 @@ export default function Hero() {
           <div className="inline-flex items-center gap-2 bg-[#E60000]/20 border border-[#E60000]/40 rounded-full px-5 py-2 backdrop-blur-sm">
             <span className="w-2 h-2 bg-[#E60000] rounded-full animate-pulse" />
             <span className="text-sm font-semibold text-[#E60000] tracking-wide font-[family-name:var(--font-heebo)]">
-              50 מקומות בלבד | 25.2.26
+              {isNight ? "25 חבילות אחרונות בהחלט!" : "50 מקומות בלבד | 25.2.26"}
             </span>
           </div>
           <div className="inline-flex items-center gap-2 bg-emerald-500/15 border border-emerald-500/30 rounded-full px-4 py-2 backdrop-blur-sm">
@@ -142,7 +144,7 @@ export default function Hero() {
           className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed font-light"
         >
           הקצינו בדיוק{" "}
-          <span className="text-white font-bold">50 חבילות VIP</span>{" "}
+          <span className="text-white font-bold">{isNight ? "25 חבילות VIP אחרונות" : "50 חבילות VIP"}</span>{" "}
           ללקוחות עבר של קאנטרי גרייט שייפ נשר (ספייס לשעבר) שמוכנים להתחיל מחדש ולחזור לשגרה שלהם.
           במקום לחכות ליום הפתוח ולקוות שיישאר מקום –{" "}
           שריינו עכשיו את עסקת ה-VIP שלכם אונליין.{" "}

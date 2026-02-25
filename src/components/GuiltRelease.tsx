@@ -2,8 +2,10 @@
 
 import { motion } from "framer-motion";
 import { Heart } from "lucide-react";
+import { useNightMode } from "@/hooks/useNightMode";
 
 export default function GuiltRelease() {
+  const isNight = useNightMode();
   return (
     <section className="relative py-20 sm:py-28 overflow-hidden">
       {/* Subtle warm gradient background */}
@@ -52,7 +54,7 @@ export default function GuiltRelease() {
             <br />
             אבל ההזדמנות הזו, עם{" "}
             <span className="text-[#D4A853] font-semibold">
-              50 חבילות ה-VIP בלבד
+              {isNight ? "25 חבילות ה-VIP האחרונות" : "50 חבילות ה-VIP בלבד"}
             </span>
             , נוצרה בדיוק כדי לתת לכם את הדחיפה הקטנה הזו חזרה למסלול.
             <br />

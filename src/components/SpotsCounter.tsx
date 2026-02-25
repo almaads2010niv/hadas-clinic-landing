@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Flame } from "lucide-react";
 
 export default function SpotsCounter() {
-  const [totalSpots] = useState(50);
+  const [totalSpots, setTotalSpots] = useState(50);
   const [takenSpots, setTakenSpots] = useState(0);
 
   useEffect(() => {
@@ -13,6 +13,7 @@ export default function SpotsCounter() {
       try {
         const res = await fetch("/api/spots");
         const data = await res.json();
+        setTotalSpots(data.totalSpots || 50);
         setTakenSpots(data.takenSpots || 0);
       } catch {
         // Fallback: keep at 0

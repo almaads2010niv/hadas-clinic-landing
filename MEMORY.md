@@ -41,6 +41,7 @@
 - `src/components/ComparisonTable.tsx` — Great Shape vs competitors (peek UX)
 - `src/components/RiskReversal.tsx` — Refund guarantee section
 - `src/components/SpotsCounter.tsx` — Live remaining spots counter
+- `src/components/NotificationQueue.tsx` — Unified FOMO + Active Viewers (queued, no overlap)
 - `src/lib/supabase.ts` — Supabase client
 - `.env.local` — Supabase credentials (DO NOT COMMIT)
 
@@ -72,12 +73,20 @@
 - Rule: always ensure comparison/table sections show at least a visual hint of hidden content on mobile
 
 ## Architecture
-- 22 components total in src/components/
+- 24 components total in src/components/ (includes deprecated FomoNotifications, ActiveViewers)
 - 4 API routes in src/app/api/ (checkout, checkout/status, spots, leads/recent)
 - Single-page funnel: Hero → Video → SocialProof → VossBlock → Gallery → Comparison → Testimonials → GuiltRelease → Pricing → Calculator → RiskReversal → HowItWorks → Checkout → Footer
-- Overlay components: StickyBar, FomoNotifications, ExitIntent, AccessibilityWidget, CookieConsent
+- Overlay components: StickyBar, NotificationQueue, ExitIntent, AccessibilityWidget, CookieConsent
 
-## Current State (Session 6)
+## Z-Index Layering (important!)
+- Noise overlay (globals.css `.noise-overlay`): z-9999 — pointer-events: none
+- AccessibilityWidget panel: z-[10020]
+- CookieConsent: z-[10010]
+- AccessibilityWidget button: z-[10005]
+- All other overlays (StickyBar, NotificationQueue, ExitIntent): z-50
+- Rule: any interactive overlay MUST be above z-9999 to be clickable over noise texture
+
+## Current State (Session 7)
 - ✅ Landing page fully built, deployed, and conversion-optimized
 - ✅ Supabase leads table with status tracking (pending_payment → redirected_to_checkout)
 - ✅ Payment link integrated (Attractinet external checkout)
@@ -87,6 +96,18 @@
 - ✅ Mobile UX: VIP card badges in flow, responsive layouts
 - ✅ New components: GuiltRelease, HowItWorks
 - ✅ Extensive Hebrew copy overhaul (VossBlock, Gallery, RiskReversal, Hero)
+- ✅ NotificationQueue: unified FOMO + Active Viewers in single queue (no overlap)
+- ✅ CookieConsent + AccessibilityWidget z-index fixed (above noise overlay)
+- ✅ Supabase lead timestamps can be reset via REST API for fresh FOMO display
+- ✅ SMS campaign launched on event day (Feb 25, 2026) — 155+ leads in first hours!
+- ✅ Spots counter capped at minimum 4 remaining (never shows 0 or "sold out")
+- ✅ CSV export of leads via Supabase REST API + Node script
 - ⏳ Custom domain connection (space-cn.co.il) — DNS setup needed
 - ⏳ Facebook Pixel tracking
-- Last updated: Session 6
+- Last updated: Session 7
+
+## Operational Notes
+- **Reset lead timestamps**: Use curl PATCH to Supabase REST API with `created_at: NOW()`
+- **Export leads to CSV**: Run node script fetching from Supabase REST API → `Downloads/leads_great_shape.csv`
+- **Spots counter floor**: `/api/spots/route.ts` has `minRemaining = 4` — prevents showing 0 spots
+- **Total spots**: 50 (hardcoded in `/api/spots/route.ts`)

@@ -100,6 +100,42 @@ Session 6: Analytics + Lead Status Tracking
 - Files modified: layout.tsx, api/checkout/route.ts, CheckoutForm.tsx, supabase-setup.sql
 - New files: api/checkout/status/route.ts, supabase-migration-status.sql
 
+Session 7: Launch Day Fixes — Active Viewers, z-index, Notification Queue
+- EVENT DAY: February 25, 2026 — SMS campaign going out to former members
+- 3 urgent fixes requested by Niv:
+  1. Reset Supabase lead timestamps (Ortal, Shiran, Haim, Liad) to NOW()
+     via REST API — so FOMO notifications show "לפני X דקות" not "שעות"
+  2. New ActiveViewers component — shows "🔥 X צופים בהטבה עכשיו" with
+     fluctuating count (6-24), orange eye icon, appears at bottom-left
+  3. CookieConsent not showing on mobile — ROOT CAUSE: noise overlay in
+     globals.css has z-index: 9999, but CookieConsent was z-[9980] = BEHIND it
+     - Fixed: CookieConsent z-[9980] → z-[10010]
+     - Fixed: AccessibilityWidget button z-[9990] → z-[10005]
+     - Fixed: AccessibilityWidget panel z-[9999] → z-[10020]
+- Updated VideoSection title: "הכירו את" → "הכירו מחדש את קאנטרי גרייט שייפ"
+- Commit 38e9902, auto-deployed to Vercel
+- CRITICAL BUG reported: ActiveViewers and FomoNotifications overlap on mobile
+  - Both fixed at bottom of screen, appearing simultaneously, covering each other
+  - Solution: created NotificationQueue.tsx — unified queue manager
+    - Alternates: viewers (5s) → gap (1.5s) → fomo (5s) → gap (1.5s) → repeat
+    - AnimatePresence mode="wait" ensures clean transitions
+    - Only ONE notification visible at any time
+    - Replaced both FomoNotifications + ActiveViewers in page.tsx
+  - Verified with 12-second timed observation: clean alternation confirmed
+- Commit 94c74ec, auto-deployed to Vercel
+- Timestamps reset multiple times throughout the day as SMS campaign progressed
+- Files created: NotificationQueue.tsx, ActiveViewers.tsx (deprecated by Queue)
+- Files modified: page.tsx, CookieConsent.tsx, AccessibilityWidget.tsx, VideoSection.tsx
+- SMS CAMPAIGN RESULTS: 155+ leads within first hours!
+- Spots counter cap: added minRemaining=4 in /api/spots — never shows 0 or "sold out"
+  - With 155 leads and 50 total spots, counter correctly shows "4 נותרים"
+  - Niv initially confused (thought it was stuck) — explained real data exceeded 50 spots
+- Exported all 155 leads to CSV file (Downloads/leads_great_shape.csv) via Supabase REST API
+  - Hebrew headers: שם, טלפון, אימייל, סטטוס, תאריך הרשמה
+  - Status translated to Hebrew (ממתין לתשלום, הופנה לסליקה, שילם)
+- Commit d09e58c (spots cap), auto-deployed to Vercel
+- Files modified: api/spots/route.ts
+
 TODO:
 - Custom domain connection (DNS CNAME for space-cn.co.il)
 - Facebook Pixel tracking

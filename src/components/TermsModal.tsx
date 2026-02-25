@@ -3,9 +3,11 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
+import { useNightMode } from "@/hooks/useNightMode";
 
 export default function TermsModal() {
   const [open, setOpen] = useState(false);
+  const isNight = useNightMode();
 
   return (
     <>
@@ -52,7 +54,7 @@ export default function TermsModal() {
               <div className="space-y-6 text-gray-400 text-sm leading-relaxed">
                 <div>
                   <h4 className="text-white font-bold mb-2">1. מהות המבצע</h4>
-                  <p>המבצע מוגבל ל-50 הנרשמים הראשונים בלבד דרך דף זה.</p>
+                  <p>המבצע מוגבל ל-{isNight ? "25" : "50"} הנרשמים הראשונים בלבד דרך דף זה.</p>
                 </div>
 
                 <div>

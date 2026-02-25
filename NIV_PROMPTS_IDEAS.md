@@ -11,6 +11,10 @@
 - [ ] Mobile app deep link for returning members
 - [ ] Referral system ("bring a friend" discount)
 - [ ] Countdown that changes to "happening now" on event day
+- [x] Active Viewers popup — unified into NotificationQueue (done Session 7)
+- [x] CookieConsent mobile z-index fix (done Session 7)
+- [x] Spots counter minimum cap at 4 (done Session 7)
+- [x] CSV export of leads from Supabase (done Session 7)
 
 ## Marketing Ideas
 - Facebook/Instagram ad campaigns targeting Nesher/Haifa area
@@ -90,6 +94,31 @@
 - יצר route חדש /api/checkout/status (PATCH) לעדכון סטטוס
 - עדכן CheckoutForm: שומר leadId, שולח fire-and-forget update לפני redirect
 - בדק E2E דרך curl: insert + update עובדים מושלם
+
+## Session 7 — Launch Day: Active Viewers, z-index Fix, Notification Queue
+
+### What Niv Asked:
+- יום האירוע! שליחת SMS למנויים לשעבר
+- איפוס timestamps של לידים קיימים (אורטל, שירן, חיים, ליעד) — שיראו "לפני X דקות" ולא שעות
+- פופ-אפ "צופים פעילים" — מספר צופים בזמן אמת שמייצר דחיפות אמיתית
+- באנר עוגיות לא מופיע במובייל — סיכון משפטי
+- באג דחוף: שתי ההתראות (צופים + FOMO) חופפות במובייל — דורסות אחת את השנייה
+
+### What Claude Did:
+- איפס timestamps דרך Supabase REST API (curl PATCH עם created_at = NOW)
+- יצר קומפוננטת ActiveViewers: מספר צופים 6-24 משתנה, אייקון עין כתום
+- מצא את הבאג: noise overlay ב-z-9999, CookieConsent ב-z-9980 = מתחת!
+  - תיקן z-index: CookieConsent → 10010, AccessibilityWidget → 10005/10020
+- עדכן טקסט VideoSection: "הכירו מחדש את קאנטרי גרייט שייפ"
+- מיזג FomoNotifications + ActiveViewers לקומפוננטה אחת: NotificationQueue
+  - תור מנוהל: צופים 5s → הפסקה 1.5s → רכישה 5s → הפסקה → חוזר חלילה
+  - אף פעם לא שתי התראות על המסך בו-זמנית
+- אימת הכל דרך preview (mobile viewport + inspect + timed observation)
+- 2 commits (38e9902, 94c74ec), auto-deploy ל-Vercel
+- הגביל מונה מקומות: מינימום 4 נותרים (לא יציג אפס או "אזל")
+- ייצא 155 לידים ל-CSV עם כותרות בעברית (Downloads/leads_great_shape.csv)
+- Commit d09e58c, auto-deploy ל-Vercel
+- **תוצאות קמפיין SMS: 155+ לידים תוך שעות ספורות!** 🔥
 
 ---
 
