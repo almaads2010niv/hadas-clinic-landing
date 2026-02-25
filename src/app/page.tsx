@@ -13,11 +13,10 @@ import HowItWorks from "@/components/HowItWorks";
 import CheckoutForm from "@/components/CheckoutForm";
 import Footer from "@/components/Footer";
 import StickyBar from "@/components/StickyBar";
-import FomoNotifications from "@/components/FomoNotifications";
+import NotificationQueue from "@/components/NotificationQueue";
 import ExitIntent from "@/components/ExitIntent";
 import AccessibilityWidget from "@/components/AccessibilityWidget";
 import CookieConsent from "@/components/CookieConsent";
-import ActiveViewers from "@/components/ActiveViewers";
 
 export default function Home() {
   return (
@@ -25,8 +24,8 @@ export default function Home() {
       {/* Sticky CTA Bar */}
       <StickyBar />
 
-      {/* FOMO Notifications */}
-      <FomoNotifications />
+      {/* Unified Notification Queue (FOMO + Active Viewers) */}
+      <NotificationQueue />
 
       {/* Exit Intent Popup */}
       <ExitIntent />
@@ -36,9 +35,6 @@ export default function Home() {
 
       {/* Cookie Consent */}
       <CookieConsent />
-
-      {/* Active Viewers Counter */}
-      <ActiveViewers />
 
       {/* 1. Hero - The Hook */}
       <Hero />
