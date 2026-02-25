@@ -18,7 +18,7 @@ export default function VideoSection() {
             תראו בעצמכם
           </span>
           <h2 className="font-[family-name:var(--font-heebo)] font-black text-3xl sm:text-4xl">
-            הכירו את <span className="text-gradient-red">קאנטרי גרייט שייפ</span>
+            הכירו מחדש את <span className="text-gradient-red">קאנטרי גרייט שייפ</span>
           </h2>
         </motion.div>
 

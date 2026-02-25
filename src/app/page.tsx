@@ -17,6 +17,7 @@ import FomoNotifications from "@/components/FomoNotifications";
 import ExitIntent from "@/components/ExitIntent";
 import AccessibilityWidget from "@/components/AccessibilityWidget";
 import CookieConsent from "@/components/CookieConsent";
+import ActiveViewers from "@/components/ActiveViewers";
 
 export default function Home() {
   return (
@@ -35,6 +36,9 @@ export default function Home() {
 
       {/* Cookie Consent */}
       <CookieConsent />
+
+      {/* Active Viewers Counter */}
+      <ActiveViewers />
 
       {/* 1. Hero - The Hook */}
       <Hero />
