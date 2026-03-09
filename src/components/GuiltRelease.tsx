@@ -2,14 +2,12 @@
 
 import { motion } from "framer-motion";
 import { Heart } from "lucide-react";
-import { useNightMode } from "@/hooks/useNightMode";
 
 export default function GuiltRelease() {
-  const isNight = useNightMode();
   return (
     <section className="relative py-20 sm:py-28 overflow-hidden">
       {/* Subtle warm gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-[#0D0A08] to-[#0A0A0A]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0F0F0F] via-[#0D0A08] to-[#0F0F0F]" />
 
       {/* Soft gold ambient glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-[#D4A853]/5 rounded-full blur-[100px]" />
@@ -45,21 +43,21 @@ export default function GuiltRelease() {
           {/* Main text */}
           <p className="font-[family-name:var(--font-assistant)] text-xl sm:text-2xl text-gray-300 leading-[1.8] sm:leading-[1.9]">
             <span className="text-white font-semibold">
-              זה בסדר ששמתם את עצמכם על ״השתק״ לתקופה.
+              כמה פעמים הסתכלת על עצמך במראה ואמרת &quot;אני אטפל בזה מתישהו&quot;?
             </span>
             <br />
-            החיים עמוסים. העבודה, המשפחה, החדשות...{" "}
-            קל מאוד לשים את עצמנו בסוף התור.
+            כמה אירועים הלבשת שרוול ארוך כי לא רצית שיראו?
+            כמה כסף בזבזת על קרמים שהבטיחו הכל?
             <br />
             <br />
-            אבל ההזדמנות הזו, עם{" "}
+            הגיע הזמן להפסיק לדחות ולהתחיל לחיות —{" "}
             <span className="text-[#D4A853] font-semibold">
-              {isNight ? "25 חבילות ה-VIP האחרונות" : "50 חבילות ה-VIP בלבד"}
+              בלי להתנצל על העור שלך.
             </span>
-            , נוצרה בדיוק כדי לתת לכם את הדחיפה הקטנה הזו חזרה למסלול.
+            <br />
             <br />
             <span className="text-white font-medium">
-              זה לא חייב להיות מושלם, זה רק צריך להתחיל.
+              20 פניות בלבד החודש. ההזדמנות הזו נוצרה בדיוק בשבילך.
             </span>
           </p>
         </motion.div>

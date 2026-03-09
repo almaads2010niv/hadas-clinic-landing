@@ -1,13 +1,9 @@
 import { NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
 
-// Night sale starts: Feb 25, 2026 at 20:00 Israel time (UTC+2)
-const NIGHT_START = new Date("2026-02-25T18:00:00Z").getTime();
-
 export async function GET() {
   try {
-    const isNight = Date.now() >= NIGHT_START;
-    const totalSpots = isNight ? 25 : 50;
+    const totalSpots = 20;
 
     const { count, error } = await supabase
       .from("leads")
@@ -18,7 +14,7 @@ export async function GET() {
       return NextResponse.json({ totalSpots, takenSpots: 0 });
     }
 
-    const minRemaining = 4;
+    const minRemaining = 3;
     const maxTaken = totalSpots - minRemaining;
     const takenSpots = Math.min(count || 0, maxTaken);
 
@@ -36,7 +32,6 @@ export async function GET() {
     );
   } catch (error) {
     console.error("Spots API error:", error);
-    const fallbackTotal = Date.now() >= NIGHT_START ? 25 : 50;
-    return NextResponse.json({ totalSpots: fallbackTotal, takenSpots: 0 });
+    return NextResponse.json({ totalSpots: 20, takenSpots: 0 });
   }
 }

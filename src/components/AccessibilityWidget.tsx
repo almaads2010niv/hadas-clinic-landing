@@ -186,7 +186,7 @@ export default function AccessibilityWidget() {
                 {/* Reset */}
                 <button
                   onClick={resetAll}
-                  className="w-full p-4 rounded-xl bg-[#E60000]/20 text-[#E60000] font-[family-name:var(--font-heebo)] font-bold hover:bg-[#E60000]/30 transition cursor-pointer"
+                  className="w-full p-4 rounded-xl bg-[#BD8C84]/20 text-[#BD8C84] font-[family-name:var(--font-heebo)] font-bold hover:bg-[#BD8C84]/30 transition cursor-pointer"
                 >
                   איפוס הגדרות
                 </button>

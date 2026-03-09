@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Flame } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
 export default function StickyBar() {
   const [show, setShow] = useState(false);
@@ -33,12 +33,9 @@ export default function StickyBar() {
         >
           <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <Flame className="w-5 h-5 text-[#E60000] animate-pulse hidden sm:block" />
+              <Sparkles className="w-5 h-5 text-[#BD8C84] animate-pulse hidden sm:block" />
               <span className="text-white text-sm font-[family-name:var(--font-heebo)] font-bold hidden sm:block">
-                יום פתוח VIP | 25.2.26
-              </span>
-              <span className="text-gray-400 text-xs hidden md:block">
-                חודש מרץ ב-1 ש״ח + מנוי VIP
+                הדס שמריהו | הסרת נגעי עור מ-70 ש״ח
               </span>
             </div>
 
@@ -46,9 +43,9 @@ export default function StickyBar() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={scrollToCheckout}
-              className="bg-[#E60000] hover:bg-[#FF1A1A] text-white font-[family-name:var(--font-heebo)] font-bold text-sm px-6 py-2.5 rounded-xl transition-all cursor-pointer whitespace-nowrap"
+              className="bg-[#BD8C84] hover:bg-[#D1B09D] text-white font-[family-name:var(--font-heebo)] font-bold text-sm px-6 py-2.5 rounded-xl transition-all cursor-pointer whitespace-nowrap"
             >
-              שריון עסקת ה-VIP ב-150 ש״ח
+              לפגישת ייעוץ חינם →
             </motion.button>
           </div>
         </motion.div>

@@ -39,7 +39,7 @@ export default function CookieConsent() {
         >
           <div className="max-w-3xl mx-auto bg-[#1A1A1A] border border-white/10 rounded-2xl p-5 sm:p-6 shadow-2xl flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <div className="flex items-start gap-3 flex-1">
-              <Cookie className="w-6 h-6 text-[#E60000] shrink-0 mt-0.5" />
+              <Cookie className="w-6 h-6 text-[#BD8C84] shrink-0 mt-0.5" />
               <div>
                 <p className="text-white text-sm font-[family-name:var(--font-heebo)] font-bold mb-1">
                   אתר זה משתמש בעוגיות
@@ -59,7 +59,7 @@ export default function CookieConsent() {
               </button>
               <button
                 onClick={handleAccept}
-                className="flex-1 sm:flex-none px-5 py-2.5 rounded-xl bg-[#E60000] text-white text-sm font-[family-name:var(--font-heebo)] font-bold hover:bg-[#FF1A1A] transition cursor-pointer"
+                className="flex-1 sm:flex-none px-5 py-2.5 rounded-xl bg-[#BD8C84] text-white text-sm font-[family-name:var(--font-heebo)] font-bold hover:bg-[#D1B09D] transition cursor-pointer"
               >
                 אישור
               </button>

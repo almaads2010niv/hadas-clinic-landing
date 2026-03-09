@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-brand-red: #E60000;
-  --color-brand-red-dark: #B30000;
-  --color-brand-red-light: #FF1A1A;
-  --color-brand-black: #0A0A0A;
-  --color-brand-charcoal: #1A1A1A;
+  --color-brand-rose: #BD8C84;
+  --color-brand-rose-dark: #A1796F;
+  --color-brand-rose-light: #D1B09D;
+  --color-brand-black: #0F0F0F;
+  --color-brand-charcoal: #1E1E1E;
   --color-brand-gray: #2A2A2A;
-  --color-brand-white: #FAFAFA;
-  --color-brand-cream: #F5F0EB;
+  --color-brand-white: #FAF9F5;
+  --color-brand-cream: #E8E0D8;
   --color-brand-gold: #D4A853;
   --font-display: var(--font-heebo);
   --font-body: var(--font-assistant);
@@ -19,16 +19,16 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0A0A0A;
+  background: #0F0F0F;
 }
 ::-webkit-scrollbar-thumb {
-  background: #E60000;
+  background: #BD8C84;
   border-radius: 4px;
 }
 
 /* Selection color */
 ::selection {
-  background: #E60000;
+  background: #BD8C84;
   color: white;
 }
 
@@ -38,8 +38,8 @@ html {
 }
 
 body {
-  background: #0A0A0A;
-  color: #FAFAFA;
+  background: #0F0F0F;
+  color: #FAF9F5;
   overflow-x: hidden;
 }
 
@@ -58,8 +58,8 @@ body {
 
 /* Glow effect for CTA */
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(230, 0, 0, 0.4), 0 0 60px rgba(230, 0, 0, 0.1); }
-  50% { box-shadow: 0 0 30px rgba(230, 0, 0, 0.6), 0 0 80px rgba(230, 0, 0, 0.2); }
+  0%, 100% { box-shadow: 0 0 20px rgba(189, 140, 132, 0.4), 0 0 60px rgba(189, 140, 132, 0.1); }
+  50% { box-shadow: 0 0 30px rgba(189, 140, 132, 0.6), 0 0 80px rgba(189, 140, 132, 0.2); }
 }
 
 .cta-glow {
@@ -72,8 +72,8 @@ body {
 }
 
 /* Text gradient */
-.text-gradient-red {
-  background: linear-gradient(135deg, #E60000, #FF4444);
+.text-gradient-rose {
+  background: linear-gradient(135deg, #BD8C84, #D1B09D);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -100,7 +100,7 @@ body {
 }
 .card-lift:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 60px rgba(230, 0, 0, 0.15);
+  box-shadow: 0 20px 60px rgba(189, 140, 132, 0.15);
 }
 
 /* Stagger children animations */
@@ -128,13 +128,13 @@ body {
   animation: slide-out-left 0.5s ease-in forwards;
 }
 
-/* Hero March badge glow */
+/* Hero badge glow */
 @keyframes badge-glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(230, 0, 0, 0.5), 0 0 60px rgba(230, 0, 0, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 20px rgba(189, 140, 132, 0.5), 0 0 60px rgba(189, 140, 132, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.05);
   }
   50% {
-    box-shadow: 0 0 40px rgba(230, 0, 0, 0.7), 0 0 100px rgba(230, 0, 0, 0.3), inset 0 0 30px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(189, 140, 132, 0.7), 0 0 100px rgba(189, 140, 132, 0.3), inset 0 0 30px rgba(255, 255, 255, 0.1);
   }
 }
 

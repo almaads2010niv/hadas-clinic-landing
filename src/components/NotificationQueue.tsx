@@ -6,16 +6,16 @@ import { UserCheck, Eye } from "lucide-react";
 
 // ── Fallback names when no real leads exist ──
 const fallbackNames = [
-  "דנה מחיפה",
-  "אלון מנשר",
-  "רונית מקריית אתא",
-  "יוסי מטירת הכרמל",
-  "מיכל מנשר",
-  "עומר מחיפה",
-  "שירה מקריית מוצקין",
-  "אבי מנשר",
-  "נועה מחיפה",
-  "גיל מקריית ביאליק",
+  "שרית מקריות",
+  "ענבל מחיפה",
+  "מיכל מקריית ביאליק",
+  "רונית מקריית מוצקין",
+  "אורלי מנשר",
+  "סיגל מחיפה",
+  "דנה מקריות",
+  "גלית מקריית אתא",
+  "אפרת מחיפה",
+  "טלי מקריית ביאליק",
 ];
 
 const fakeTimeAgo = () => {
@@ -169,15 +169,15 @@ export default function NotificationQueue() {
             className="bg-[#1A1A1A] border border-white/10 rounded-2xl p-4 shadow-2xl shadow-black/50 flex items-center gap-3 cursor-pointer"
             onClick={handleDismiss}
           >
-            <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#E60000]/20 flex items-center justify-center">
-              <UserCheck className="w-5 h-5 text-[#E60000]" />
+            <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#BD8C84]/20 flex items-center justify-center">
+              <UserCheck className="w-5 h-5 text-[#BD8C84]" />
             </div>
             <div className="min-w-0">
               <p className="text-white text-sm font-[family-name:var(--font-heebo)] font-bold truncate">
                 {fomoData.name}
               </p>
               <p className="text-gray-400 text-xs">
-                שריין/ה את עסקת ה-VIP {fomoData.time}
+                קבעה פגישת ייעוץ {fomoData.time}
               </p>
             </div>
             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse flex-shrink-0" />
@@ -203,7 +203,7 @@ export default function NotificationQueue() {
                 {viewerCount}
               </span>
               <span className="text-gray-400 text-xs font-[family-name:var(--font-heebo)]">
-                צופים בהטבה עכשיו
+                צופות בהטבה עכשיו
               </span>
             </div>
             <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse flex-shrink-0" />

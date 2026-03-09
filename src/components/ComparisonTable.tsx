@@ -6,42 +6,37 @@ import { Check, X, HelpCircle, ChevronLeft } from "lucide-react";
 
 interface Feature {
   name: string;
-  country: boolean;
-  gym: boolean | "maybe";
-  studio: boolean | "maybe";
-  park: boolean | "maybe";
+  hadas: boolean;
+  derm: boolean | "maybe";
+  surgery: boolean | "maybe";
+  home: boolean | "maybe";
 }
 
 const features: Feature[] = [
-  { name: "חדר כושר", country: true, gym: true, studio: false, park: false },
-  { name: "תוכנית אימונים מותאמת", country: true, gym: true, studio: true, park: true },
-  { name: "בריכה פנימית מקורה", country: true, gym: false, studio: false, park: false },
-  { name: "מערכת שעות סטודיו עשירה", country: true, gym: false, studio: true, park: false },
-  { name: "בריכה חיצונית", country: true, gym: false, studio: false, park: false },
-  { name: "בריכת פעוטות", country: true, gym: false, studio: false, park: false },
-  { name: "ג׳קוזי", country: true, gym: false, studio: false, park: false },
-  { name: "סאונה יבשה", country: true, gym: false, studio: false, park: false },
-  { name: "סאונה רטובה", country: true, gym: false, studio: false, park: false },
-  { name: "מגלשות מים", country: true, gym: false, studio: false, park: false },
-  { name: "מלתחות ללא הפסקת מים", country: true, gym: "maybe", studio: "maybe", park: false },
-  { name: "חניה בשפע", country: true, gym: "maybe", studio: "maybe", park: true },
-  { name: "בית קפה", country: true, gym: false, studio: "maybe", park: false },
-  { name: "מדשאות אינסופיות", country: true, gym: false, studio: false, park: false },
+  { name: "מחיר נגיש (מ-70 ש״ח)", hadas: true, derm: false, surgery: false, home: true },
+  { name: "ללא כאב", hadas: true, derm: false, surgery: false, home: "maybe" },
+  { name: "ללא צלקות", hadas: true, derm: "maybe", surgery: false, home: false },
+  { name: "תוצאה מיידית", hadas: true, derm: "maybe", surgery: true, home: false },
+  { name: "ללא תקופת החלמה", hadas: true, derm: true, surgery: false, home: true },
+  { name: "ייעוץ חינם", hadas: true, derm: false, surgery: false, home: false },
+  { name: "28 שנות ניסיון", hadas: true, derm: true, surgery: true, home: false },
+  { name: "הסמכה פרא-רפואית", hadas: true, derm: true, surgery: true, home: false },
+  { name: "אווירה אישית ומזמינה", hadas: true, derm: false, surgery: false, home: true },
 ];
 
 const StatusIcon = ({ status }: { status: boolean | "maybe" }) => {
   if (status === true)
-    return <Check className="w-5 h-5 text-[#E60000]" />;
+    return <Check className="w-5 h-5 text-[#BD8C84]" />;
   if (status === "maybe")
     return <HelpCircle className="w-4 h-4 text-gray-500" />;
   return <X className="w-4 h-4 text-gray-600/40" />;
 };
 
 const competitors = [
-  { key: "country", label: "קאנטרי גרייט שייפ", highlight: true },
-  { key: "gym", label: "חדר כושר", highlight: false },
-  { key: "studio", label: "סטודיו", highlight: false },
-  { key: "park", label: "מאמן בפארק", highlight: false },
+  { key: "hadas", label: "הדס שמריהו", highlight: true },
+  { key: "derm", label: "רופא עור", highlight: false },
+  { key: "surgery", label: "ניתוח פלסטי", highlight: false },
+  { key: "home", label: "טיפול ביתי", highlight: false },
 ];
 
 export default function ComparisonTable() {
@@ -82,7 +77,7 @@ export default function ComparisonTable() {
 
   return (
     <section className="relative py-24 sm:py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-[#0D0D0D] to-[#0A0A0A]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0F0F0F] via-[#0D0D0D] to-[#0F0F0F]" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6">
         <motion.div
@@ -92,7 +87,7 @@ export default function ComparisonTable() {
           className="text-center mb-4"
         >
           <h2 className="font-[family-name:var(--font-heebo)] font-black text-3xl sm:text-4xl md:text-5xl">
-            אז איפה המנוי <span className="text-gradient-red">המשתלם?</span>
+            למה דווקא <span className="text-gradient-rose">אצל הדס?</span>
           </h2>
         </motion.div>
 
@@ -104,7 +99,7 @@ export default function ComparisonTable() {
             viewport={{ once: true }}
             className="text-center text-gray-500 text-sm mb-6 font-[family-name:var(--font-heebo)]"
           >
-            גרייט שייפ מול המתחרים — גלול לצד לראות את ההשוואה ←
+            הדס מול האלטרנטיבות — גללי לצד לראות את ההשוואה ←
           </motion.p>
         )}
 
@@ -131,7 +126,7 @@ export default function ComparisonTable() {
                       key={c.key}
                       className={`p-4 text-center font-[family-name:var(--font-heebo)] font-bold text-sm whitespace-nowrap ${
                         c.highlight
-                          ? "bg-[#E60000] text-white rounded-t-2xl text-base"
+                          ? "bg-[#BD8C84] text-white rounded-t-2xl text-base"
                           : "text-gray-400 bg-white/5 rounded-t-xl"
                       }`}
                     >
@@ -157,24 +152,24 @@ export default function ComparisonTable() {
                     </td>
                     <td className={`p-3 sm:p-4 text-center ${
                       i === features.length - 1 ? "rounded-b-2xl" : ""
-                    } bg-[#E60000]/5 border-x border-[#E60000]/10`}>
+                    } bg-[#BD8C84]/5 border-x border-[#BD8C84]/10`}>
                       <div className="flex justify-center">
-                        <StatusIcon status={f.country} />
+                        <StatusIcon status={f.hadas} />
                       </div>
                     </td>
                     <td className="p-3 sm:p-4 text-center bg-white/[0.02]">
                       <div className="flex justify-center">
-                        <StatusIcon status={f.gym} />
+                        <StatusIcon status={f.derm} />
                       </div>
                     </td>
                     <td className="p-3 sm:p-4 text-center">
                       <div className="flex justify-center">
-                        <StatusIcon status={f.studio} />
+                        <StatusIcon status={f.surgery} />
                       </div>
                     </td>
                     <td className="p-3 sm:p-4 text-center bg-white/[0.02]">
                       <div className="flex justify-center">
-                        <StatusIcon status={f.park} />
+                        <StatusIcon status={f.home} />
                       </div>
                     </td>
                   </motion.tr>
@@ -194,7 +189,7 @@ export default function ComparisonTable() {
                 className="absolute left-0 top-0 bottom-4 w-12 pointer-events-none flex items-center justify-center z-20"
               >
                 {/* Gradient fade from left */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/80 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#0F0F0F] via-[#0F0F0F]/80 to-transparent" />
 
                 {/* Arrow indicator */}
                 <motion.div
@@ -202,11 +197,11 @@ export default function ComparisonTable() {
                   transition={{ repeat: Infinity, duration: 1.2, ease: "easeInOut" }}
                   className="relative z-10 flex flex-col items-center gap-1"
                 >
-                  <div className="w-8 h-8 rounded-full bg-[#E60000] flex items-center justify-center shadow-lg shadow-[#E60000]/40">
+                  <div className="w-8 h-8 rounded-full bg-[#BD8C84] flex items-center justify-center shadow-lg shadow-[#BD8C84]/40">
                     <ChevronLeft className="w-5 h-5 text-white" />
                   </div>
                   <span className="text-[10px] text-white/70 font-bold font-[family-name:var(--font-heebo)] whitespace-nowrap">
-                    המתחרים
+                    האלטרנטיבות
                   </span>
                 </motion.div>
               </motion.div>
@@ -215,7 +210,7 @@ export default function ComparisonTable() {
 
           {/* Left edge gradient fade (always visible on mobile when there's more to scroll) */}
           {isMobile && canScrollMore && (
-            <div className="absolute left-0 top-0 bottom-4 w-6 bg-gradient-to-r from-[#0A0A0A]/60 to-transparent pointer-events-none z-10" />
+            <div className="absolute left-0 top-0 bottom-4 w-6 bg-gradient-to-r from-[#0F0F0F]/60 to-transparent pointer-events-none z-10" />
           )}
         </motion.div>
 
@@ -228,10 +223,10 @@ export default function ComparisonTable() {
           className="text-center mt-12"
         >
           <p className="text-gray-500 text-lg mb-2 font-[family-name:var(--font-heebo)]">
-            כשהכל כלול
+            כשהמחיר, הבטיחות והתוצאה נפגשים
           </p>
           <h3 className="font-[family-name:var(--font-heebo)] font-black text-3xl sm:text-4xl md:text-5xl text-white">
-            גם הכושר <span className="text-gradient-red">מצליח יותר</span>
+            הבחירה <span className="text-gradient-rose">ברורה</span>
           </h3>
         </motion.div>
       </div>

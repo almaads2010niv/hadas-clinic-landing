@@ -4,28 +4,20 @@ import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import Countdown from "./Countdown";
 import Image from "next/image";
-import { useNightMode } from "@/hooks/useNightMode";
+import { useEndOfMonthTarget } from "@/hooks/useNightMode";
 
 export default function Hero() {
-  const isNight = useNightMode();
+  const target = useEndOfMonthTarget();
   const scrollToCheckout = () => {
     document.getElementById("checkout")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background image with overlay */}
-      <div className="absolute inset-0">
-        <Image
-          src="/images/gym1.jpg"
-          alt="חדר כושר גרייט שייפ"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-[#0A0A0A]" />
-        {/* Red diagonal accent */}
-        <div className="absolute top-0 left-0 w-1/3 h-full bg-gradient-to-r from-[#E60000]/10 to-transparent skew-x-[-12deg] origin-top-left" />
+      {/* Background gradient (no image) */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0F0F0F] via-[#1A1A1A] to-[#0F0F0F]">
+        {/* Dusty rose diagonal accent */}
+        <div className="absolute top-0 left-0 w-1/3 h-full bg-gradient-to-r from-[#BD8C84]/10 to-transparent skew-x-[-12deg] origin-top-left" />
       </div>
 
       {/* Content */}
@@ -39,14 +31,14 @@ export default function Hero() {
         >
           <Image
             src="/images/logo.png"
-            alt="גרייט שייפ"
+            alt="הדס שמריהו"
             width={180}
             height={180}
-            className="mx-auto drop-shadow-2xl"
+            className="mx-auto drop-shadow-2xl invert brightness-200"
           />
         </motion.div>
 
-        {/* March 1 NIS highlight badge — glowing & animated */}
+        {/* Price highlight badge — glowing & animated */}
         <motion.div
           initial={{ opacity: 0, scale: 0.5, rotateX: 90 }}
           animate={{ opacity: 1, scale: 1, rotateX: 0 }}
@@ -55,10 +47,10 @@ export default function Hero() {
         >
           <div className="inline-block relative group">
             {/* Outer glow ring */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-[#E60000] via-[#FF4444] to-[#E60000] rounded-2xl blur-lg opacity-60 group-hover:opacity-80 transition-opacity" />
+            <div className="absolute -inset-1 bg-gradient-to-r from-[#BD8C84] via-[#D1B09D] to-[#BD8C84] rounded-2xl blur-lg opacity-60 group-hover:opacity-80 transition-opacity" />
 
             {/* Main badge */}
-            <div className="relative march-badge-glow bg-gradient-to-br from-[#E60000] via-[#D40000] to-[#B30000] rounded-2xl px-8 sm:px-10 py-5 border border-white/20 overflow-hidden">
+            <div className="relative march-badge-glow bg-gradient-to-br from-[#BD8C84] via-[#A87D75] to-[#A1796F] rounded-2xl px-8 sm:px-10 py-5 border border-white/20 overflow-hidden">
               {/* Shimmer effect */}
               <div className="absolute inset-0 overflow-hidden rounded-2xl">
                 <motion.div
@@ -82,18 +74,15 @@ export default function Hero() {
 
               {/* Text */}
               <div className="relative z-10">
-                <span className="font-[family-name:var(--font-heebo)] font-black text-2xl sm:text-3xl text-white drop-shadow-lg">
-                  חודש מרץ ב-
-                </span>
                 <motion.span
                   animate={{ scale: [1, 1.05, 1] }}
                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                   className="inline-block font-[family-name:var(--font-heebo)] font-black text-4xl sm:text-5xl text-white drop-shadow-lg"
                 >
-                  1 ש״ח
+                  70 ש״ח
                 </motion.span>
                 <span className="font-[family-name:var(--font-heebo)] font-black text-2xl sm:text-3xl text-white drop-shadow-lg">
-                  {" "}בלבד!
+                  {" "}לנגע!
                 </span>
               </div>
             </div>
@@ -107,20 +96,20 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.35 }}
           className="flex flex-wrap items-center justify-center gap-3 mb-8"
         >
-          <div className="inline-flex items-center gap-2 bg-[#E60000]/20 border border-[#E60000]/40 rounded-full px-5 py-2 backdrop-blur-sm">
-            <span className="w-2 h-2 bg-[#E60000] rounded-full animate-pulse" />
-            <span className="text-sm font-semibold text-[#E60000] tracking-wide font-[family-name:var(--font-heebo)]">
-              {isNight ? "25 חבילות אחרונות בהחלט!" : "50 מקומות בלבד | 25.2.26"}
+          <div className="inline-flex items-center gap-2 bg-[#BD8C84]/20 border border-[#BD8C84]/40 rounded-full px-5 py-2 backdrop-blur-sm">
+            <span className="w-2 h-2 bg-[#BD8C84] rounded-full animate-pulse" />
+            <span className="text-sm font-semibold text-[#BD8C84] tracking-wide font-[family-name:var(--font-heebo)]">
+              ללא כאב וללא צלקות
             </span>
           </div>
           <div className="inline-flex items-center gap-2 bg-emerald-500/15 border border-emerald-500/30 rounded-full px-4 py-2 backdrop-blur-sm">
             <span className="text-sm font-semibold text-emerald-400 font-[family-name:var(--font-heebo)]">
-              ✓ ללא התחייבות
+              ✓ ייעוץ חינם
             </span>
           </div>
           <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 backdrop-blur-sm">
             <span className="text-sm font-semibold text-white/80 font-[family-name:var(--font-heebo)]">
-              ✓ מחיר מובטח ל-5 שנים
+              ✓ 28 שנות ניסיון
             </span>
           </div>
         </motion.div>
@@ -132,8 +121,8 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.3 }}
           className="font-[family-name:var(--font-heebo)] font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight mb-6"
         >
-          <span className="block text-white">נראה שחיכית לתירוץ</span>
-          <span className="block text-gradient-red">מספיק טוב כדי לחזור הביתה</span>
+          <span className="block text-white">יום חדש לעור שלך</span>
+          <span className="block text-gradient-rose">ללא כאב, ללא צלקות</span>
         </motion.h1>
 
         {/* Sub-headline */}
@@ -143,18 +132,9 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.5 }}
           className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed font-light"
         >
-          הקצינו בדיוק{" "}
-          <span className="text-white font-bold">{isNight ? "25 חבילות VIP אחרונות" : "50 חבילות VIP"}</span>{" "}
-          ללקוחות עבר של קאנטרי גרייט שייפ נשר (ספייס לשעבר) שמוכנים להתחיל מחדש ולחזור לשגרה שלהם.
-          במקום לחכות ליום הפתוח ולקוות שיישאר מקום –{" "}
-          שריינו עכשיו את עסקת ה-VIP שלכם אונליין.{" "}
-          <span className="text-white font-semibold">
-            תעריף קבוע ומוזל במיוחד, ללא התחייבות, ואפס סיכון.
-          </span>
-          <br />
-          <span className="text-white/90 font-medium">
-            השגרה החדשה שלכם מתחילה כאן.
-          </span>
+          הסרת שומות, סרחי עור, פלולות ונגעים בשיטה חדשנית ומהפכנית — החל מ-
+          <span className="text-white font-bold">70 ש״ח לנגע</span>.
+          {" "}תהליך מהיר, תוצאות מיידיות, ו-28 שנות ניסיון של הדס שמריהו.
         </motion.p>
 
         {/* Countdown */}
@@ -164,10 +144,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.7 }}
           className="mb-10"
         >
-          <Countdown
-            targetDate={isNight ? "2026-02-26T08:00:00+02:00" : "2026-02-25T20:00:00+02:00"}
-            nightMode={isNight}
-          />
+          <Countdown targetDate={target} />
         </motion.div>
 
         {/* CTA Button */}
@@ -178,10 +155,10 @@ export default function Hero() {
           onClick={scrollToCheckout}
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
-          className="cta-glow relative bg-[#E60000] hover:bg-[#FF1A1A] text-white font-[family-name:var(--font-heebo)] font-bold text-lg sm:text-xl px-10 py-5 rounded-2xl transition-all duration-300 cursor-pointer group"
+          className="cta-glow relative bg-[#BD8C84] hover:bg-[#D1B09D] text-white font-[family-name:var(--font-heebo)] font-bold text-lg sm:text-xl px-10 py-5 rounded-2xl transition-all duration-300 cursor-pointer group"
         >
           <span className="relative z-10">
-            שריון עסקת ה-VIP ב-150 ש״ח
+            קבעי פגישת ייעוץ חינם →
           </span>
           {/* Shine effect */}
           <div className="absolute inset-0 rounded-2xl overflow-hidden">

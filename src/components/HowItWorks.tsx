@@ -1,31 +1,31 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Lock, Phone, Dumbbell } from "lucide-react";
+import { Phone, MessageCircle, Sparkles } from "lucide-react";
 
 const steps = [
   {
     number: "1",
-    icon: <Lock className="w-6 h-6" />,
-    title: "משריינים אונליין",
+    icon: <Phone className="w-6 h-6" />,
+    title: "משאירה פרטים",
     description:
-      "תשלום מאובטח של 150 ש״ח (דמי רישום).",
-    accent: "bg-[#E60000]",
+      "ממלאת שם וטלפון — לוקח 10 שניות.",
+    accent: "bg-[#BD8C84]",
   },
   {
     number: "2",
-    icon: <Phone className="w-6 h-6" />,
-    title: "אנחנו מתקשרים אליכם",
+    icon: <MessageCircle className="w-6 h-6" />,
+    title: "הדס מתקשרת",
     description:
-      "נציג יצור קשר טלפוני להשלמת הרישום והקמת הוראת קבע (249 ש״ח לחודש).",
+      "שיחה קצרה לתיאום + הסבר על הטיפול המתאים לך.",
     accent: "bg-[#D4A853]",
   },
   {
     number: "3",
-    icon: <Dumbbell className="w-6 h-6" />,
-    title: "מתחילים להתאמן",
+    icon: <Sparkles className="w-6 h-6" />,
+    title: "עור חדש",
     description:
-      "המנוי שלכם פעיל, ללא התחייבות, ואפס סיכון.",
+      "מגיעה לקליניקה, טיפול מהיר, והעור חלק ונקי.",
     accent: "bg-emerald-500",
   },
 ];
@@ -33,7 +33,7 @@ const steps = [
 export default function HowItWorks() {
   return (
     <section className="relative py-20 sm:py-28 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-[#0C0C0C] to-[#0A0A0A]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0F0F0F] via-[#0C0C0C] to-[#0F0F0F]" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-6">
         <motion.div
@@ -42,11 +42,11 @@ export default function HowItWorks() {
           viewport={{ once: true }}
           className="text-center mb-14"
         >
-          <span className="inline-block text-[#E60000] text-sm font-bold tracking-widest mb-4 font-[family-name:var(--font-heebo)]">
-            3 צעדים פשוטים
+          <span className="inline-block text-[#BD8C84] text-sm font-bold tracking-widest mb-4 font-[family-name:var(--font-heebo)]">
+            3 צעדים לעור חלק
           </span>
           <h2 className="font-[family-name:var(--font-heebo)] font-black text-3xl sm:text-4xl md:text-5xl">
-            איך זה <span className="text-gradient-red">עובד?</span>
+            איך זה <span className="text-gradient-rose">עובד?</span>
           </h2>
         </motion.div>
 

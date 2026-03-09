@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { Calendar, Users, Sparkles } from "lucide-react";
+import { Calendar, Heart, Sparkles } from "lucide-react";
 
 interface CounterProps {
   end: number;
@@ -49,17 +49,17 @@ function AnimatedCounter({ end, suffix = "", label, icon, delay }: CounterProps)
     >
       <div className="relative bg-gradient-to-br from-[#1A1A1A] to-[#111] border border-white/5 rounded-3xl p-8 sm:p-10 text-center overflow-hidden card-lift">
         {/* Accent corner */}
-        <div className="absolute top-0 right-0 w-20 h-20 bg-[#E60000]/5 rounded-bl-[60px]" />
+        <div className="absolute top-0 right-0 w-20 h-20 bg-[#BD8C84]/5 rounded-bl-[60px]" />
 
         {/* Icon */}
-        <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#E60000]/10 text-[#E60000] mb-5">
+        <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#BD8C84]/10 text-[#BD8C84] mb-5">
           {icon}
         </div>
 
         {/* Number */}
         <div className="font-[family-name:var(--font-heebo)] font-black text-5xl sm:text-6xl text-white mb-3 counter-number">
           {count.toLocaleString()}
-          <span className="text-[#E60000]">{suffix}</span>
+          <span className="text-[#BD8C84]">{suffix}</span>
         </div>
 
         {/* Label */}
@@ -76,7 +76,7 @@ export default function SocialProof() {
     <section className="relative py-24 sm:py-32 overflow-hidden">
       {/* Background accent */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-[#0D0D0D] to-[#0A0A0A]" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#E60000]/3 rounded-full blur-[200px]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#BD8C84]/3 rounded-full blur-[200px]" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         <motion.h2
@@ -85,7 +85,7 @@ export default function SocialProof() {
           viewport={{ once: true }}
           className="font-[family-name:var(--font-heebo)] font-black text-3xl sm:text-4xl text-center mb-4"
         >
-          למה <span className="text-gradient-red">קאנטרי גרייט שייפ</span> זה הבית?
+          למה לקוחות בוחרות ב<span className="text-gradient-rose">הדס?</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0 }}
@@ -99,22 +99,23 @@ export default function SocialProof() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           <AnimatedCounter
-            end={16}
+            end={28}
             suffix="+"
-            label="שנות מצוינות"
+            label="שנות ניסיון"
             icon={<Calendar className="w-7 h-7" />}
             delay={0}
           />
           <AnimatedCounter
-            end={5000}
+            end={1000}
             suffix="+"
-            label="לקוחות פעילים באזור"
-            icon={<Users className="w-7 h-7" />}
+            label="לקוחות מרוצות"
+            icon={<Heart className="w-7 h-7" />}
             delay={200}
           />
           <AnimatedCounter
-            end={12}
-            label="שדרוגים במתחם השנה"
+            end={70}
+            suffix="₪"
+            label="בלבד לנגע"
             icon={<Sparkles className="w-7 h-7" />}
             delay={400}
           />
