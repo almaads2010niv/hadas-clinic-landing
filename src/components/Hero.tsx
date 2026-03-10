@@ -14,11 +14,31 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background gradient (no image) */}
+      {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0F0F0F] via-[#1A1A1A] to-[#0F0F0F]">
         {/* Dusty rose diagonal accent */}
         <div className="absolute top-0 left-0 w-1/3 h-full bg-gradient-to-r from-[#BD8C84]/10 to-transparent skew-x-[-12deg] origin-top-left" />
       </div>
+
+      {/* Hero image with fade effect */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.45 }}
+        transition={{ duration: 1.5, delay: 0.3, ease: "easeOut" }}
+        className="absolute inset-0 z-[1] pointer-events-none"
+      >
+        <Image
+          src="/images/hero-hadas.png"
+          alt="הדס שמריהו — קוסמטיקאית פרא-רפואית"
+          fill
+          className="object-cover object-top"
+          priority
+        />
+        {/* Fade overlays — blends image into dark background on all edges */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] via-transparent to-[#0F0F0F]/80" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0F0F0F]/60 via-transparent to-[#0F0F0F]/60" />
+        <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-[#0F0F0F] to-transparent" />
+      </motion.div>
 
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 py-32 text-center">
